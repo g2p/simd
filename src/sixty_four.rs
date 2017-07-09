@@ -11,8 +11,10 @@ use super::{
 
     Unalign, bitcast,
 };
-use std::mem;
-use std::ops;
+#[cfg(feature = "use_std")]
+use std::{mem,ops};
+#[cfg(not(feature = "use_std"))]
+use core::{mem,ops};
 
 /// Boolean type for 64-bit integers.
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]

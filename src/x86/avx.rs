@@ -54,7 +54,10 @@ extern "platform-intrinsic" {
 #[doc(hidden)]
 pub mod common {
     use super::*;
+    #[cfg(feature = "use_std")]
     use std::mem;
+    #[cfg(not(feature = "use_std"))]
+    use core::mem;
 
     macro_rules! bools {
         ($($ty: ty, $all: ident, $any: ident, $testc: ident, $testz: ident;)*) => {

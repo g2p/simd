@@ -1,6 +1,8 @@
 #![allow(dead_code)]
-use std::ops;
-use std::mem;
+#[cfg(feature = "use_std")]
+use std::{mem,ops};
+#[cfg(not(feature = "use_std"))]
+use core::{mem,ops};
 #[allow(unused_imports)]
 use super::{
 	Simd,

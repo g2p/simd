@@ -9,8 +9,10 @@ use super::{
 
     Unalign, bitcast,
 };
-use std::mem;
-use std::ops;
+#[cfg(feature = "use_std")]
+use std::{mem,ops};
+#[cfg(not(feature = "use_std"))]
+use core::{mem,ops};
 
 #[cfg(any(target_arch = "x86",
           target_arch = "x86_64"))]

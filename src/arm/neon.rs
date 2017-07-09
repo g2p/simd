@@ -473,7 +473,10 @@ impl u8x8 {
 pub mod common {
     use super::super::super::*;
     use super::*;
+    #[cfg(feature = "use_std")]
     use std::mem;
+    #[cfg(not(feature = "use_std"))]
+    use core::mem;
 
     #[inline]
     pub fn f32x4_sqrt(x: f32x4) -> f32x4 {
